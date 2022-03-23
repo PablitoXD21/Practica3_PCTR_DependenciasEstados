@@ -33,5 +33,5 @@ public class ActividadEntradaPuerta implements Runnable{
 		
 		//Pablo
 		//hola
-		//Pablo ENP 2
+		//Pablo ENP XD
 }
