@@ -29,5 +29,5 @@ public class ActividadEntradaPuerta implements Runnable{
 				}
 			}
 		}
-//Hola Pablo
+//Hola Pablo hola
 }
