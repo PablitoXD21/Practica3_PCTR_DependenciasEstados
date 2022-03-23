@@ -13,6 +13,12 @@ public class ActividadSalidaPuerta{
 	private String puerta;
 	private IParque parque;
 	
+	/**
+	 * Constructor de la clase
+	 * 
+	 * @param puerta
+	 * @param parque
+	 */
 	public ActividadSalidaPuerta(String puerta, IParque parque) {
 		
 		this.puerta = puerta;
