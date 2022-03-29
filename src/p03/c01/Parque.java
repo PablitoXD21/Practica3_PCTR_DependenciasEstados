@@ -8,12 +8,12 @@ public class Parque implements IParque{
 
 	// TODO 
 	private int contadorPersonasTotales;
-	private Hashtable<String, Integer> contadoresPersonasPuerta;
+	private Hashtable<String, Integer> puertas;
 	
 	
 	public Parque() {	// TODO
 		contadorPersonasTotales = 0;
-		contadoresPersonasPuerta = new Hashtable<String, Integer>();
+		puertas = new Hashtable<String, Integer>();
 		// TODO
 	}
 
@@ -22,24 +22,21 @@ public class Parque implements IParque{
 	public void entrarAlParque(String puerta){		// TODO
 		
 		// Si no hay entradas por esa puerta, inicializamos
-		if (contadoresPersonasPuerta.get(puerta) == null){
-			contadoresPersonasPuerta.put(puerta, 0);
-		}
-		
-		// TODO
-				
+		if(puertas.get(puerta) == null)
+			puertas.put(puerta, 0);
 		
 		// Aumentamos el contador total y el individual
-		contadorPersonasTotales++;		
-		contadoresPersonasPuerta.put(puerta, contadoresPersonasPuerta.get(puerta)+1);
-		
-		// Imprimimos el estado del parque
+		// imprimir Mensaje de entrada
+		System.out.println("Entrada al parque por la puerta "+ puerta);
+		//Actializar contadores
+		Integer entradas = puertas.get(puerta);
+		contadorPersonasTotales ++;
+		//entradas++;
+		puertas.put(puerta, entradas+1);
+		//Comprobar el invariante
+		checkInvariante();
+
 		imprimirInfo(puerta, "Entrada");
-		
-		// TODO
-		
-		
-		// TODO
 		
 	}
 	
@@ -53,15 +50,15 @@ public class Parque implements IParque{
 		System.out.println("--> Personas en el parque " + contadorPersonasTotales); //+ " tiempo medio de estancia: "  + tmedio);
 		
 		// Iteramos por todas las puertas e imprimimos sus entradas
-		for(String p: contadoresPersonasPuerta.keySet()){
-			System.out.println("----> Por puerta " + p + " " + contadoresPersonasPuerta.get(p));
+		for(String p: puertas.keySet()){
+			System.out.println("----> Por puerta " + p + " " + puertas.get(p));
 		}
 		System.out.println(" ");
 	}
 	
 	private int sumarContadoresPuerta() {
 		int sumaContadoresPuerta = 0;
-			Enumeration<Integer> iterPuertas = contadoresPersonasPuerta.elements();
+			Enumeration<Integer> iterPuertas = puertas.elements();
 			while (iterPuertas.hasMoreElements()) {
 				sumaContadoresPuerta += iterPuertas.nextElement();
 			}
@@ -84,6 +81,13 @@ public class Parque implements IParque{
 		//
 		// TODO
 		//
+	}
+
+
+	@Override
+	public void salirDelParque(String puerta) {
+		// TODO Auto-generated method stub
+		
 	}
 
 
