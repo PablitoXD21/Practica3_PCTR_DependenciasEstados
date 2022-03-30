@@ -18,7 +18,7 @@ public class Parque implements IParque{
 
 
 	@Override
-	public void entrarAlParque(String puerta){		// TODO
+	public void entrarAlParque(String puerta){
 
 		// Si no hay entradas por esa puerta, inicializamos
 		if(puertas.get(puerta) == null)
