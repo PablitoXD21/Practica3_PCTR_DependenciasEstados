@@ -73,16 +73,6 @@ public class Parque implements IParque{
 		// TODO
 	}
 	
-	/**
-	 * Método que pone un hilo en espera.
-	 */
-	private void waitForCheck() {
-		try {
-			this.wait();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 
 	protected void comprobarAntesDeEntrar(){	// TODO
 		while (contadorPersonasTotales > MAX_PERSONAS) {
@@ -96,8 +86,13 @@ public class Parque implements IParque{
 
 	protected void comprobarAntesDeSalir(){	
 		
-		while (contadorPersonasTotales < 1)
-			waitForCheck();
+		while (contadorPersonasTotales < MAX_PERSONAS) {
+			try {
+				wait();
+			} catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 
