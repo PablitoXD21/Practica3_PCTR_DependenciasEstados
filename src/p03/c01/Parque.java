@@ -6,7 +6,6 @@ import java.util.Hashtable;
 public class Parque implements IParque{
 
 
-	// TODO 
 	private int contadorPersonasTotales;
 	private Hashtable<String, Integer> puertas;
 	public static int MAX_PERSONAS = 50;
@@ -19,8 +18,13 @@ public class Parque implements IParque{
 
 
 	@Override
+<<<<<<< HEAD
 	public void entrarAlParque(String puerta){		// TODO
 
+=======
+	public void entrarAlParque(String puerta) {
+		comprobarAntesDeEntrar();
+>>>>>>> branch 'main' of https://github.com/PablitoXD21/Practica3_PCTR_DependenciasEstados
 		// Si no hay entradas por esa puerta, inicializamos
 		if(puertas.get(puerta) == null)
 			puertas.put(puerta, 0);
@@ -68,7 +72,7 @@ public class Parque implements IParque{
 	}
 	
 
-	protected void comprobarAntesDeEntrar(){	// TODO
+	protected void comprobarAntesDeEntrar() {
 		while (contadorPersonasTotales > MAX_PERSONAS) {
 			try {
 				wait();
