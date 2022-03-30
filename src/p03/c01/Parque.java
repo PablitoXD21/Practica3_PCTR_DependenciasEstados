@@ -3,6 +3,7 @@ package src.p03.c01;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+
 /**
  * Codigo del parquer en cuestion.
  * 
@@ -101,7 +102,6 @@ public class Parque implements IParque{
 		if(puertas.get(puerta) == null)
 			puertas.put(puerta, 0);
 		comprobarAntesDeSalir();
-
 		//Actializar contadores
 		Integer entradas = puertas.get(puerta);
 		contadorPersonasTotales --;
