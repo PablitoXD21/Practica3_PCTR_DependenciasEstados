@@ -15,7 +15,6 @@ public class Parque implements IParque{
 	public Parque() {	// TODO
 		contadorPersonasTotales = 0;
 		puertas = new Hashtable<String, Integer>();
-		// TODO
 	}
 
 
@@ -41,11 +40,6 @@ public class Parque implements IParque{
 		
 		this.notifyAll();
 	}
-	
-	// 
-	// TODO Método salirDelParque
-	//
-	
 	
 	private void imprimirInfo (String puerta, String movimiento){
 		System.out.println(movimiento + " por puerta " + puerta);
