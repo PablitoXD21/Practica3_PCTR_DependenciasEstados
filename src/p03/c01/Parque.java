@@ -9,6 +9,7 @@ public class Parque implements IParque{
 	// TODO 
 	private int contadorPersonasTotales;
 	private Hashtable<String, Integer> puertas;
+	public static int MAX_PERSONAS = 50;
 	
 	
 	public Parque() {	// TODO
@@ -37,6 +38,7 @@ public class Parque implements IParque{
 		checkInvariante();
 
 		imprimirInfo(puerta, "Entrada");
+		
 		this.notifyAll();
 	}
 	
@@ -83,9 +85,13 @@ public class Parque implements IParque{
 	}
 
 	protected void comprobarAntesDeEntrar(){	// TODO
-		//
-		// TODO
-		//
+		while (contadorPersonasTotales > MAX_PERSONAS) {
+			try {
+				wait();
+			}catch(InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	protected void comprobarAntesDeSalir(){	
