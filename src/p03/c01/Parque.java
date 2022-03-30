@@ -20,7 +20,7 @@ public class Parque implements IParque{
 
 	@Override
 	public void entrarAlParque(String puerta){		// TODO
-		
+		comprobarAntesDeEntrar();
 		// Si no hay entradas por esa puerta, inicializamos
 		if(puertas.get(puerta) == null)
 			puertas.put(puerta, 0);
@@ -37,7 +37,7 @@ public class Parque implements IParque{
 		checkInvariante();
 
 		imprimirInfo(puerta, "Entrada");
-		
+		this.notifyAll();
 	}
 	
 	// 
