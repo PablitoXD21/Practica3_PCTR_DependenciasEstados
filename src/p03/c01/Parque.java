@@ -6,7 +6,6 @@ import java.util.Hashtable;
 public class Parque implements IParque{
 
 
-	// TODO 
 	private int contadorPersonasTotales;
 	private Hashtable<String, Integer> puertas;
 	public static int MAX_PERSONAS = 50;
@@ -19,7 +18,7 @@ public class Parque implements IParque{
 
 
 	@Override
-	public void entrarAlParque(String puerta){		// TODO
+	public void entrarAlParque(String puerta) {
 		comprobarAntesDeEntrar();
 		// Si no hay entradas por esa puerta, inicializamos
 		if(puertas.get(puerta) == null)
@@ -68,7 +67,7 @@ public class Parque implements IParque{
 	}
 	
 
-	protected void comprobarAntesDeEntrar(){	// TODO
+	protected void comprobarAntesDeEntrar() {
 		while (contadorPersonasTotales > MAX_PERSONAS) {
 			try {
 				wait();
