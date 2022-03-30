@@ -94,7 +94,6 @@ public class Parque implements IParque{
 		if(puertas.get(puerta) == null)
 			puertas.put(puerta, 0);
 		comprobarAntesDeSalir();
-
 		//Actializar contadores
 		Integer entradas = puertas.get(puerta);
 		contadorPersonasTotales --;
