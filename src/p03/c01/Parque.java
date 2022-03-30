@@ -5,7 +5,7 @@ import java.util.Hashtable;
 
 
 /**
- * Codigo del parquer en cuestion.
+ * Codigo del parque en cuestion.
  * 
  * @author Inigo y Pablo
  *
@@ -18,7 +18,9 @@ public class Parque implements IParque{
 	private Hashtable<String, Integer> puertas;
 	public static int MAX_PERSONAS = 50;
 	
-	
+	/**
+	 * Constructor de la clase.
+	 */
 	public Parque() {	// TODO
 		contadorPersonasTotales = 0;
 		puertas = new Hashtable<String, Integer>();
@@ -48,6 +50,12 @@ public class Parque implements IParque{
 		this.notifyAll();
 	}
 	
+	/**
+	 * Metodo que imprime la informacion de los movimientos que se realizan en el parque.
+	 * 
+	 * @param puerta
+	 * @param movimiento
+	 */
 	private void imprimirInfo (String puerta, String movimiento){
 		System.out.println(movimiento + " por puerta " + puerta);
 		System.out.println("--> Personas en el parque " + contadorPersonasTotales); //+ " tiempo medio de estancia: "  + tmedio);
@@ -59,6 +67,11 @@ public class Parque implements IParque{
 		System.out.println(" ");
 	}
 	
+	/**
+	 * Metodo que realiza la suma en cada puerta.
+	 * 
+	 * @return sumaContadoresPuerta
+	 */
 	private int sumarContadoresPuerta() {
 		int sumaContadoresPuerta = 0;
 			Enumeration<Integer> iterPuertas = puertas.elements();
@@ -68,14 +81,20 @@ public class Parque implements IParque{
 		return sumaContadoresPuerta;
 	}
 	
+	/**
+	 * Invariantes.
+	 */
 	protected void checkInvariante() {
 		assert sumarContadoresPuerta() == contadorPersonasTotales : "INV: La suma de contadores de las puertas debe ser igual al valor del contador del parte.";
 		assert contadorPersonasTotales <= MAX_PERSONAS : "INV: El parque supera la capacidad maxima de personas.";
 		assert contadorPersonasTotales >= 0 : "INV: El parque supera la capacidad de personas negativas.";
 	}
 	
-
+	/**
+	 * Metodo que comprueba las personas antes de entrar al parque y pone el hilo en espera.
+	 */
 	protected void comprobarAntesDeEntrar() {
+		
 		while (contadorPersonasTotales > MAX_PERSONAS) {
 			try {
 				this.wait();
@@ -84,7 +103,10 @@ public class Parque implements IParque{
 			}
 		}
 	}
-
+	
+	/**
+	 * Metodo que comprueba las personas antes de salir del parque y pone el hilo en espera.
+	 */
 	protected void comprobarAntesDeSalir(){	
 		
 		while (contadorPersonasTotales < MAX_PERSONAS) {

@@ -5,12 +5,24 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * Permite entrar a los usuarios en el parque.
+ * 
+ * @author Inigo y Pablo
+ *
+ */
 public class ActividadEntradaPuerta implements Runnable{
 
 		private static final int NUMENTRADAS = 20;
 		private String puerta;
 		private IParque parque;
-
+		
+		/**
+		 * Constructor de la clase
+		 * 
+		 * @param puerta
+		 * @param parque
+		 */
 		public ActividadEntradaPuerta(String puerta, IParque parque) {
 			this.puerta = puerta;
 			this.parque = parque;

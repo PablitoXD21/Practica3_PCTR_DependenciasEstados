@@ -1,6 +1,18 @@
 package src.p03.c01;
 
+/**
+ * Codigo del sistema lanzador.
+ * 
+ * @author Inigo y Pablo
+ *
+ */
 public class SistemaLanzador {
+	
+	/**
+	 * Metodo main del proyecto.
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		
 		IParque parque = new Parque();
