@@ -3,6 +3,13 @@ package src.p03.c01;
 import java.util.Enumeration;
 import java.util.Hashtable;
 
+/**
+ * Codigo del parquer en cuestion.
+ * 
+ * @author Inigo y Pablo
+ *
+ */
+
 public class Parque implements IParque{
 
 
@@ -18,7 +25,7 @@ public class Parque implements IParque{
 
 
 	@Override
-	public void entrarAlParque(String puerta){
+	public synchronized void entrarAlParque(String puerta){
 
 		// Si no hay entradas por esa puerta, inicializamos
 		if(puertas.get(puerta) == null)
@@ -70,7 +77,7 @@ public class Parque implements IParque{
 	protected void comprobarAntesDeEntrar() {
 		while (contadorPersonasTotales > MAX_PERSONAS) {
 			try {
-				wait();
+				this.wait();
 			}catch(InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -81,7 +88,7 @@ public class Parque implements IParque{
 		
 		while (contadorPersonasTotales < MAX_PERSONAS) {
 			try {
-				wait();
+				this.wait();
 			} catch(InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -90,7 +97,7 @@ public class Parque implements IParque{
 
 
 	@Override
-	public void salirDelParque(String puerta) {
+	public synchronized  void salirDelParque(String puerta) {
 		if(puertas.get(puerta) == null)
 			puertas.put(puerta, 0);
 		comprobarAntesDeSalir();
