@@ -86,9 +86,16 @@ public class Parque implements IParque{
 
 	@Override
 	public void salirDelParque(String puerta) {
-		// TODO Auto-generated method stub
 		
+		comprobarAntesDeSalir();
+
+		//Actializar contadores
+		Integer entradas = puertas.get(puerta);
+		contadorPersonasTotales --;
+		//entradas--;
+		puertas.put(puerta, entradas-1);
+		checkInvariante();
+		imprimirInfo(puerta, "Salida");
+		this.notifyAll();	
 	}
-
-
 }
