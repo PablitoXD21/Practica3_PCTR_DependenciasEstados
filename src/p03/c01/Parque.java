@@ -95,7 +95,7 @@ public class Parque implements IParque{
 	 */
 	protected void comprobarAntesDeEntrar() {
 		
-		while (contadorPersonasTotales > MAX_PERSONAS) {
+		while (contadorPersonasTotales >= MAX_PERSONAS) {
 			try {
 				this.wait();
 			}catch(InterruptedException e) {
@@ -109,7 +109,7 @@ public class Parque implements IParque{
 	 */
 	protected void comprobarAntesDeSalir(){	
 		
-		while (contadorPersonasTotales < MAX_PERSONAS) {
+		while (contadorPersonasTotales <= 0) {
 			try {
 				this.wait();
 			} catch(InterruptedException e) {
